@@ -9,7 +9,7 @@ class IntegrationActivityTaskC4C
      *
      * @var string
      */
-    const BASE_PATH = "https://e400060-iflmap.hcisbt.br1.hana.ondemand.com/http/crearactividadc4c";
+    const BASE_PATH = "https://l5603-iflmap.hcisbp.us2.hana.ondemand.com/http/registraLeads";
     const RESULT_HEADERS_PATH = "ResultHeaders";
     const CREDENTIALS = 'S0024632841:Salinas.2130';
 
@@ -36,12 +36,6 @@ class IntegrationActivityTaskC4C
     function getBody()
     {
 
-        
-
-        $Hoy = new DateTime();
-        $hoy = $Hoy->format('Y-m-d\TH:i:s.') . substr($Hoy->format('u'), 0, 3) .'Z';
-        $hoyMas2dias = $Hoy->add(new DateInterval('P2D'))->format('Y-m-d\TH:i:s.') . substr($Hoy->format('u'), 0, 3) .'Z';
-        $nota = $this->checkedInut();
 
         $body = ''.
             '{
@@ -57,11 +51,11 @@ class IntegrationActivityTaskC4C
                     {
                         "Campo": "WebSite",
                         "Valor": "Z44"
-                    },,
+                    },
                     {
                         "Campo": "RUT",
                         "Valor": "'.$_POST['Rut'].'"
-                    },,
+                    },
                     {
                         "Campo": "Consentimiento",
                         "Valor": "true"
@@ -75,7 +69,7 @@ class IntegrationActivityTaskC4C
                         "Valor": "true"
                     },
                     {
-                        "Campo": "TipoVehiculo",
+                        "Campo": "Comuna",
                         "Valor": "'.$_POST['Comuna'].'"
                     }
                 ]
@@ -102,7 +96,7 @@ class IntegrationActivityTaskC4C
     function execServices()
     {
 
-        $location = "https://l5603-iflmap.hcisbp.us2.hana.ondemand.com/http/registraLeads";
+        $location = $this::BASE_PATH;
         $request = $this->getBody();
         $headers = $this->getHeader();
 
