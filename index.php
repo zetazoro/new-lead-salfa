@@ -436,14 +436,15 @@
 	            <span id="__text435" class="sapCpText sapCpButtonWidgetExtraText sapCpSuccessMessageText sapCpSuccessMessageLabel">Gracias por su envío.</span>
 	          </div>
 	          <div class="sapCpWidgetFixContent sapCRLWidgetFixContent"></div>
-	          <div class="sapCpWidgetFixContent sapCRLWidgetFixContent"></div>
+	          <div id="respuesta"></div>
+	          <button id="__button54" type="button">Enviar Lead</button>
 	        </div>
 	      </div>
 	    </form>
 	  </body>
 	  <script>
 	    //alert("UPDATE");
-	    $("#__button53").click(function() {
+	    $("#__button54").click(function() {
 	        var Nombre = $("#__input52").val();
 	        var Apellido = $("#__input53").val();
 	        var NombreEmpresa = $("#__input54").val();
@@ -468,7 +469,7 @@
 	            asycn:false,
 
 	            success: function(data) {
-	                alert(data);
+	                document.getElementById('respuesta').innerHTML = data;
 
 	            },
 	            error: function(xhr, ajaxOptions, thrownError) {
