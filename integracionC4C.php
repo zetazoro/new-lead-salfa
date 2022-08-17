@@ -36,14 +36,7 @@ class IntegrationActivityTaskC4C
     function getBody()
     {
 
-        $idRef = $this->removeZeros($this->getParam('ID_REF'));
-        $idCuenta = $this->removeZeros($this->getParam('ID_CLIENTE'));
-        $idContacto = $this->removeZeros($this->getParam('ID_CONTACTO'));
-        $idResponsable = $this->removeZeros($this->getParam('ID_RESPONSABLE'));
-        $idCampanha = $this->getParam('utm_campaign');
-        $idActividad = $this->getParam('sap-outbound-id');
-		$utmSource = $this->getParam('utm_source');
-		$utmMedio = $this->getParam('utm_medium');
+        
 
         $Hoy = new DateTime();
         $hoy = $Hoy->format('Y-m-d\TH:i:s.') . substr($Hoy->format('u'), 0, 3) .'Z';
@@ -51,42 +44,42 @@ class IntegrationActivityTaskC4C
         $nota = $this->checkedInut();
 
         $body = ''.
-            '<n0:TaskActivityBundleMaintainRequest_sync_V1 xmlns:n0="http://sap.com/xi/SAPGlobal20/Global">'.
-            '<BasicMessageHeader>'.
-            '</BasicMessageHeader>'. 
-            '<ActivityTask actionCode="01" >'.
-            '<ProcessorParty> <BusinessPartnerInternalID>'.$idResponsable.'</BusinessPartnerInternalID> </ProcessorParty>'.
-            '<ActivityParty contactPersonListCompleteTransmissionIndicator="true">'.
-            '<RecipientPartyID>'.$idCuenta.'</RecipientPartyID>'.
-            '<RoleCode>34</RoleCode>'.
-            '<ContactPerson>'.
-            '<RecipientPartyID>'.$idContacto.'</RecipientPartyID>'.
-            '<RoleCode>ZP</RoleCode>'.
-            '<MainIndicator>true</MainIndicator>'.
-            '</ContactPerson>'.
-            '<MainIndicator>true</MainIndicator>'.
-            '</ActivityParty>'.
-            '<BusinessTransactionDocumentReference><ID>'.$idRef.'</ID><TypeCode>72</TypeCode><RoleCode>1</RoleCode></BusinessTransactionDocumentReference>'.
-            '<BusinessTransactionDocumentReference><ID>'.$idCampanha.'</ID><TypeCode>764</TypeCode><RoleCode>1</RoleCode></BusinessTransactionDocumentReference>'.
-            '<EmployeeResponsibleParty><BusinessPartnerInternalID>'.$idResponsable.'</BusinessPartnerInternalID></EmployeeResponsibleParty>'.
-            '<ReferenceParty><BusinessPartnerInternalID>'.$idContacto.'</BusinessPartnerInternalID></ReferenceParty>'.
-            '<MainActivityParty><BusinessPartnerInternalID>'.$idCuenta.'</BusinessPartnerInternalID></MainActivityParty>'.
-            '<EndDateTime timeZoneCode="UTC">'.$hoyMas2dias.'</EndDateTime>'.
-            '<GroupCode>Z60</GroupCode>'.
-            '<Name>'.$nota.' Opp: '.$idRef.'</Name>'.
-            '<PriorityCode>2</PriorityCode>'.
-            '<ProcessingTypeCode>0002</ProcessingTypeCode>'.
-            '<StartDateTime timeZoneCode="UTC">'.$hoy.'</StartDateTime>'.
-            '<TextCollection textListCompleteTransmissionIndicator="true">'.
-            '<Text>'.
-            '<TypeCode>10002</TypeCode>'.
-            '<ContentText languageCode="ES">'.$nota.'</ContentText>'.
-            '</Text>'.
-            '</TextCollection>'.
-			'<ns8:ZFuente_Task xmlns:ns8="http://sap.com/xi/AP/CustomerExtension/BYD/A2OER">'.$utmSource.'</ns8:ZFuente_Task>'.
-			'<ns8:ZMedio_Task xmlns:ns8="http://sap.com/xi/AP/CustomerExtension/BYD/A2OER">'.$utmMedio.'</ns8:ZMedio_Task>'.
-            '</ActivityTask>'.
-            '</n0:TaskActivityBundleMaintainRequest_sync_V1>';
+            '{
+                "Cabecera": {
+                    "Nombre": "'.$_POST['Nombre'].'",
+                    "Apellido": "'.$_POST['Apellido'].'",
+                    "NombreEmpresa": "'.$_POST['NombreEmpresa'].'",
+                    "Email": "'.$_POST['Email'].'",
+                    "Telefono": "'.$_POST['Telefono'].'",
+                    "LN": "100"
+                },
+                "Posiciones": [
+                    {
+                        "Campo": "WebSite",
+                        "Valor": "Z44"
+                    },,
+                    {
+                        "Campo": "RUT",
+                        "Valor": "'.$_POST['Rut'].'"
+                    },,
+                    {
+                        "Campo": "Consentimiento",
+                        "Valor": "true"
+                    },
+                    {
+                        "Campo": "ProcesadorMotor",
+                        "Valor": "false"
+                    },
+                    {
+                        "Campo": "Conversica",
+                        "Valor": "true"
+                    },
+                    {
+                        "Campo": "TipoVehiculo",
+                        "Valor": "'.$_POST['Comuna'].'"
+                    }
+                ]
+            }';
 
         return $body;
     }
@@ -96,7 +89,7 @@ class IntegrationActivityTaskC4C
         
         $headerTask = [
             'Method: POST',
-            'Content-Type: application/xml',
+            'Content-Type: application/json',
             "Authorization: Basic " . base64_encode($this::CREDENTIALS),
             'User-Agent: PHP-SOAP-CURL',
             'Accept: */*',
@@ -109,7 +102,7 @@ class IntegrationActivityTaskC4C
     function execServices()
     {
 
-        $location = "https://e400060-iflmap.hcisbt.br1.hana.ondemand.com/http/crearactividadc4c";
+        $location = "https://l5603-iflmap.hcisbp.us2.hana.ondemand.com/http/registraLeads";
         $request = $this->getBody();
         $headers = $this->getHeader();
 

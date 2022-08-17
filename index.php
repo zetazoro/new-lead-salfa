@@ -443,8 +443,23 @@
 	  <script>
 	    //alert("PUREBA");
 	    $("#__button53").click(function() {
-	        var url = window.location.href;
-	        var dataString = {"url":url};
+	        var Nombre = $("#__input52").val();
+	        var Apellido = $("#__input53").val();
+	        var NombreEmpresa = $("#__input54").val();
+	        var Rut = $("#__input55").val();
+	        var Email = $("#__input57").val();
+	        var Telefono = $("#__input56").val();
+	        var Comuna = $("#__down10").val();
+	        var dataString = 
+	        {
+	        	"Nombre":Nombre,
+	        	"Apellido":Apellido,
+	        	"NombreEmpresa":NombreEmpresa,
+	        	"Rut":Rut,
+	        	"Email":Email,
+	        	"Telefono":Telefono,
+	        	"Comuna":Comuna,
+	        };
 	        $.ajax({
 	            url: 'integracionC4C.php',
 	            type: "POST",
