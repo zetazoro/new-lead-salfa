@@ -441,7 +441,7 @@
 	    </form>
 	  </body>
 	  <script>
-	    //alert("PUREBA");
+	    //alert("UPDATE");
 	    $("#__button53").click(function() {
 	        var Nombre = $("#__input52").val();
 	        var Apellido = $("#__input53").val();
