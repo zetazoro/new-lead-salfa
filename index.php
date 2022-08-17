@@ -436,6 +436,7 @@
 	            <span id="__text435" class="sapCpText sapCpButtonWidgetExtraText sapCpSuccessMessageText sapCpSuccessMessageLabel">Gracias por su envío.</span>
 	          </div>
 	          <div class="sapCpWidgetFixContent sapCRLWidgetFixContent"></div>
+	          <div class="sapCpWidgetFixContent sapCRLWidgetFixContent"></div>
 	        </div>
 	      </div>
 	    </form>
@@ -467,7 +468,7 @@
 	            asycn:false,
 
 	            success: function(data) {
-	                document.getElementById('respuesta').innerHTML = data;
+	                alert(data);
 
 	            },
 	            error: function(xhr, ajaxOptions, thrownError) {
