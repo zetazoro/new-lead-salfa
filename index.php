@@ -6,6 +6,7 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <link type="text/css" rel="stylesheet" href="./sapContentPage.css">
 	    <script src="./sapContentPage.js"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	    <title>Formulario</title>
 	  </head>
 	  <body class="sapCpBody">
@@ -439,4 +440,26 @@
 	      </div>
 	    </form>
 	  </body>
+	  <script>
+	    //alert("PUREBA");
+	    $("#__button53").click(function() {
+	        var url = window.location.href;
+	        var dataString = {"url":url};
+	        $.ajax({
+	            url: 'integracionC4C.php',
+	            type: "POST",
+	            data: dataString,
+	            asycn:false,
+
+	            success: function(data) {
+	                document.getElementById('respuesta').innerHTML = data;
+
+	            },
+	            error: function(xhr, ajaxOptions, thrownError) {
+	                console.log(xhr.status);
+	                console.log(thrownError);
+	            }
+	        });
+	    });
+	  </script>
 	</html>
