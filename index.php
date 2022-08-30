@@ -537,13 +537,24 @@
 	    }
 	    $("#__input55").blur(function (e){
 	    	
-	    	var valor = rut.value.replace('.', '');
+	    	var valor = this.value.replace('.', '');
 	        valor = valor.replace('-', '');
 	    	if(valor.length < 7){
 				checkRut(this);
+	    	}	
+	    });
+	    $("#__input55").change(function(){
+	    	var valor = this.value;
+	    	if(valor.length > 1){
+	    		valor = valor.replace('.', '');
+	        	valor = valor.replace('-', '');
+    			cuerpo = valor.slice(0, -1);
+	        	dv = valor.slice(-1).toUpperCase();
+	        	this.value = cuerpo + '-' + dv;
 	    	}
-	    	
-	    	
+	    	if(valor.includes(".")){
+	    		this.value = valor.replace(".","");
+	    	}
 	    });
 
 	  </script>
