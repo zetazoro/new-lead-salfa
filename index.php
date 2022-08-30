@@ -537,7 +537,12 @@
 	    }
 	    $("#__input55").blur(function (e){
 	    	
-	    	checkRut(this);
+	    	var valor = rut.value.replace('.', '');
+	        valor = valor.replace('-', '');
+	    	if(valor.length < 7){
+				checkRut(this);
+	    	}
+	    	
 	    	
 	    });
 
