@@ -44,7 +44,7 @@
 	            <label id="__label79" class="sapCpLabel" for="__input55">Rut</label>
 	          </div>
 	          <div class="sapCpWidgetContent sapCpWidgetContentRight sapCRLWidgetContent sapCRLWidgetContentRight" style="padding-left:20%">
-	            <input id="__input55" class="sapCpInput" type="text" maxlength="10" onBlur="checkRut(this)">
+	            <input id="__input55" class="sapCpInput" type="text" maxlength="10" >
 	          </div>
 	          <div class="sapCpWidgetFixContent sapCRLWidgetFixContent"></div>
 	        </div>
@@ -533,6 +533,10 @@
 
 		        // Si todo sale bien, eliminar errores (decretar que es válido)
 		        rut.setCustomValidity('');
-		    }
+		    };
+		    $("#__input55").blur(funtion (e){
+		    	alert(checkRut(e));
+		    });
+
 	  </script>
 	</html>
