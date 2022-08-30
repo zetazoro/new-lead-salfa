@@ -543,7 +543,7 @@
 				checkRut(this);
 	    	}	
 	    });
-	    $("#__input55").change(function(){
+	    $("#__input55")..bind("keyup keydown change", function(){
 	    	var valor = this.value;
 	    	if(valor.length > 1){
 	    		valor = valor.replace('.', '');
