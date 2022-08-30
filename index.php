@@ -535,10 +535,8 @@
 	        rut.setCustomValidity('');
 	    }
 	    $("#__input55").blur(function (e){
-	    	debugger;
-	    	var rut = this.value;
-	    	alert(rut);
-	    	var check = checkRut(rut);
+	    	
+	    	var check = checkRut(this);
 	    	alert(check);
 	    });
 
