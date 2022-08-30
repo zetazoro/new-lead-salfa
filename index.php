@@ -536,7 +536,7 @@
 	    }
 	    $("#__input55").blur(function (e){
 	    	debugger;
-	    	var rut = this.value();
+	    	var rut = this;
 	    	alert(rut);
 	    	alert(checkRut(rut));
 	    });
