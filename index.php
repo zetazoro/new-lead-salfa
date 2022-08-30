@@ -479,7 +479,7 @@
 	    });
         function checkRut(rut) {
 	        // Despejar Puntos
-	        debugger;
+
 	        var valor = rut.value.replace('.', '');
 	        // Despejar Guión
 	        valor = valor.replace('-', '');
@@ -537,8 +537,8 @@
 	    }
 	    $("#__input55").blur(function (e){
 	    	
-	    	var check = checkRut(this);
-	    	alert(check);
+	    	checkRut(this);
+	    	
 	    });
 
 	  </script>
