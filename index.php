@@ -538,7 +538,8 @@
 	    	debugger;
 	    	var rut = this.value;
 	    	alert(rut);
-	    	alert(checkRut(rut));
+	    	var check = checkRut(rut);
+	    	alert(check);
 	    });
 
 	  </script>
