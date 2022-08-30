@@ -534,8 +534,10 @@
 	        // Si todo sale bien, eliminar errores (decretar que es válido)
 	        rut.setCustomValidity('');
 	    }
-	    $("#__input55").blur(funtion (e){
-	    	alert(checkRut(e));
+	    $("#__input55").blur(function (e){
+	    	var rut = this.value;
+	    	alert(e);
+	    	alert(checkRut(rut));
 	    });
 
 	  </script>
