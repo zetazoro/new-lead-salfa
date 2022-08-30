@@ -479,6 +479,7 @@
 	    });
         function checkRut(rut) {
 	        // Despejar Puntos
+	        debugger;
 	        var valor = rut.value.replace('.', '');
 	        // Despejar Guión
 	        valor = valor.replace('-', '');
