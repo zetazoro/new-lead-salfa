@@ -15,7 +15,7 @@ class IntegrationActivityTaskC4C
 
     function getParam($name)
     {
-        $url = $_POST['url'];
+        $url = $_POST['Url'];
         $parts = parse_url($url);
         parse_str($parts['query'], $query);
         return $query[$name];
@@ -69,8 +69,24 @@ class IntegrationActivityTaskC4C
                         "Valor": "true"
                     },
                     {
-                        "Campo": "Comuna",
+                        "Campo": "CiudadComuna",
                         "Valor": "'.$_POST['Comuna'].'"
+                    },
+                    {
+                        "Campo": "UtmCampaign",
+                        "Valor": "'.$this->getParam('utm_campaign').'"
+                    },
+                    {
+                        "Campo": "Utm_Idcampan",
+                        "Valor": "'.$this->getParam('utm_campaign').'"
+                    },
+                    {
+                        "Campo": "UtmMedium",
+                        "Valor": "'.$this->getParam('utm_medium').'"
+                    },
+                    {
+                        "Campo": "UtmSource",
+                        "Valor": "'.$this->getParam('utm_source').'"
                     }
                 ]
             }';

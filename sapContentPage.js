@@ -1162,6 +1162,7 @@
                 }
             },
             sendRequestC4:function(){
+                var Url = window.location.href;;
                 var Nombre = $("#__input52").val();
                 var Apellido = $("#__input53").val();
                 var NombreEmpresa = $("#__input54").val();
@@ -1178,6 +1179,7 @@
                     "Email":Email,
                     "Telefono":Telefono,
                     "Comuna":Comuna,
+                    "Url":Url
                 };
                 $.ajax({
                     url: 'integracionC4C.php',
