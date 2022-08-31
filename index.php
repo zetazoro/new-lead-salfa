@@ -526,7 +526,7 @@
 	        // Casos Especiales (0 y K)
 	        dv = (dv == 'K') ? 10 : dv;
 	        dv = (dv == 0) ? 11 : dv;
-
+        	debugger;
 	        // Validar que el Cuerpo coincide con su Dígito Verificador
 	        if (dvEsperado != dv) {
 	        	$("#application-MarketingContent-manage-component---ObjectView--DesignView--ContentPage-0L-3W").classList.add("sapCpWidgetInvalid");
@@ -544,7 +544,7 @@
 	        rut.setCustomValidity('');
 	    }
 	    $("#__input55").blur(function (e){
-	    	
+	    	debugger;
 	    	var valor = this.value.replace('.', '');
 	        valor = valor.replace('-', '');
 	    	if(valor.length > 7){
