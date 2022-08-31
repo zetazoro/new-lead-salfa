@@ -684,6 +684,9 @@
                         }
                     }
                 }
+                if (i.id === "__input55") {
+                    alert("Validando RUT");
+                }
                 if (i.setCustomValidity) {
                     i.setCustomValidity(I);
                     i.title = I;
