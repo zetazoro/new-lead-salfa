@@ -531,15 +531,14 @@
 	        if (dvEsperado != dv) {
 	        	var element = document.getElementById("application-MarketingContent-manage-component---ObjectView--DesignView--ContentPage-0L-3W");
 	        	element.classList.add("sapCpWidgetInvalid");
-	        	$("#divRutMessage").append('<span style="color:red;font-weight:bold">RUT Inválido</span>');
+	        	$("#divRutMessage").append('<span id="spanRutInvalid" style="color:red;font-weight:bold">RUT Inválido</span>');
 	        	
 	            rut.setCustomValidity("RUT Inválido");
 	            return false;
 	        }else{
 	        	var element = document.getElementById("application-MarketingContent-manage-component---ObjectView--DesignView--ContentPage-0L-3W");
 	        	element.classList.remove("sapCpWidgetInvalid");
-	        	$("#divRutMessage").innerHTML = "Hola";
-	        	alert("RUT BUENO");
+	        	$("#divRutMessage").remove();
 	        }
 
 	        // Si todo sale bien, eliminar errores (decretar que es válido)
