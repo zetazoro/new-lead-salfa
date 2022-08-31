@@ -685,8 +685,8 @@
                     }
                 }
                 if (i.id === "__input55") {
-                    var rut = i;
-                    var valor = rut.value.replace('.', '');
+                    
+                    var valor = i.value.replace('.', '');
                     // Despejar Guión
                     valor = valor.replace('-', '');
 
@@ -695,11 +695,11 @@
                     var dv = valor.slice(-1).toUpperCase();
 
                     // Formatear RUN
-                    rut.value = cuerpo + '-' + dv
+                    i.value = cuerpo + '-' + dv
 
                     // Si no cumple con el mínimo ej. (n.nnn.nnn)
                     if (cuerpo.length < 7) {
-                        rut.setCustomValidity("RUT Incompleto");
+                        i.setCustomValidity("RUT Incompleto");
                         return false;
                     }
 
@@ -708,10 +708,10 @@
                     var multiplo = 2;
 
                     // Para cada dígito del Cuerpo
-                    for (i = 1; i <= cuerpo.length; i++) {
+                    for (in = 1; in <= cuerpo.length; in++) {
 
                         // Obtener su Producto con el Múltiplo Correspondiente
-                        var index = multiplo * valor.charAt(cuerpo.length - i);
+                        var index = multiplo * valor.charAt(cuerpo.length - in);
 
                         // Sumar al Contador General
                         suma = suma + index;
