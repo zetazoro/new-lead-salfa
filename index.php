@@ -529,13 +529,15 @@
         	debugger;
 	        // Validar que el Cuerpo coincide con su Dígito Verificador
 	        if (dvEsperado != dv) {
-	        	$("#application-MarketingContent-manage-component---ObjectView--DesignView--ContentPage-0L-3W").classList.add("sapCpWidgetInvalid");
+	        	var element = document.getElementById("application-MarketingContent-manage-component---ObjectView--DesignView--ContentPage-0L-3W");
+	        	element.classList.add("sapCpWidgetInvalid");
 	        	$("#divRutMessage").append('<span style="color:red;font-weight:bold">RUT Inválido</span>');
 	        	alert("RUT MALO");
 	            rut.setCustomValidity("RUT Inválido");
 	            return false;
 	        }else{
-	        	$("#application-MarketingContent-manage-component---ObjectView--DesignView--ContentPage-0L-3W").classList.remove("sapCpWidgetInvalid");
+	        	var element = document.getElementById("application-MarketingContent-manage-component---ObjectView--DesignView--ContentPage-0L-3W");
+	        	element.classList.remove("sapCpWidgetInvalid");
 	        	$("#divRutMessage").innerHTML = "Hola";
 	        	alert("RUT BUENO");
 	        }
