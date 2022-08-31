@@ -44,10 +44,10 @@
 	          <div class="sapCpWidgetContent sapCpWidgetContentLeft sapCRLWidgetContent sapCRLWidgetContentLeft" style="width:20%">
 	            <label id="__label79" class="sapCpLabel" for="__input55">Rut</label>
 	          </div>
-	          <div class="sapCpWidgetContent sapCpWidgetContentRight sapCRLWidgetContent sapCRLWidgetContentRight" style="padding-left:20%">
-	            <input id="__input55" class="sapCpInput" type="text" maxlength="10" >
+	          <div id="divRutMessage" class="sapCpWidgetContent sapCpWidgetContentRight sapCRLWidgetContent sapCRLWidgetContentRight" style="padding-left:20%">
+	            <input id="__input55" class="sapCpInput" type="text" maxlength="10">        
 	          </div>
-	          <div id="divRutMessage" class="sapCpWidgetFixContent sapCRLWidgetFixContent"></div>
+	          <div class="sapCpWidgetFixContent sapCRLWidgetFixContent"></div>
 	        </div>
 	        <div id="application-MarketingContent-manage-component---ObjectView--DesignView--ContentPage-0L-4W" data-sap-cp-key="CBC36EB931C05BA2BC96923A8222924B68FA87B8" class="sapCpWidget sapCRLWidget sapCpInputWidget sapCpContactAttribute-TELNR_MOBILE" data-sap-cp-wprogres-enabled="false">
 	          <div class="sapCpWidgetContent sapCpWidgetContentLeft sapCRLWidgetContent sapCRLWidgetContentLeft" style="width:20%">
@@ -526,13 +526,13 @@
 	        // Casos Especiales (0 y K)
 	        dv = (dv == 'K') ? 10 : dv;
 	        dv = (dv == 0) ? 11 : dv;
-        	debugger;
+        	
 	        // Validar que el Cuerpo coincide con su Dígito Verificador
 	        if (dvEsperado != dv) {
 	        	var element = document.getElementById("application-MarketingContent-manage-component---ObjectView--DesignView--ContentPage-0L-3W");
 	        	element.classList.add("sapCpWidgetInvalid");
 	        	$("#divRutMessage").append('<span style="color:red;font-weight:bold">RUT Inválido</span>');
-	        	alert("RUT MALO");
+	        	
 	            rut.setCustomValidity("RUT Inválido");
 	            return false;
 	        }else{
@@ -546,7 +546,7 @@
 	        rut.setCustomValidity('');
 	    }
 	    $("#__input55").blur(function (e){
-	    	debugger;
+	    	
 	    	var valor = this.value.replace('.', '');
 	        valor = valor.replace('-', '');
 	    	if(valor.length > 7){
