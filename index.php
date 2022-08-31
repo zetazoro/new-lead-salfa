@@ -538,7 +538,7 @@
 	        }else{
 	        	var element = document.getElementById("application-MarketingContent-manage-component---ObjectView--DesignView--ContentPage-0L-3W");
 	        	element.classList.remove("sapCpWidgetInvalid");
-	        	$("#divRutMessage").remove();
+	        	$("#spanRutInvalid").remove();
 	        }
 
 	        // Si todo sale bien, eliminar errores (decretar que es válido)
