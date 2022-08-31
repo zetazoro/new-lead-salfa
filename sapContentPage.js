@@ -685,7 +685,8 @@
                     }
                 }
                 if (i.id === "__input55") {
-                    var valor = i.value.replace('.', '');
+                    var rut = i;
+                    var valor = rut.value.replace('.', '');
                     // Despejar Guión
                     valor = valor.replace('-', '');
 
