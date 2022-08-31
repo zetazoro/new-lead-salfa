@@ -708,10 +708,10 @@
                     var multiplo = 2;
 
                     // Para cada dígito del Cuerpo
-                    for (in = 1; in <= cuerpo.length; in++) {
+                    for (var itera = 1; itera <= cuerpo.length; itera++) {
 
                         // Obtener su Producto con el Múltiplo Correspondiente
-                        var index = multiplo * valor.charAt(cuerpo.length - in);
+                        var index = multiplo * valor.charAt(cuerpo.length - itera);
 
                         // Sumar al Contador General
                         suma = suma + index;
