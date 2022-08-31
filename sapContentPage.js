@@ -685,7 +685,56 @@
                     }
                 }
                 if (i.id === "__input55") {
-                    alert("Validando RUT");
+                    var valor = i.value.replace('.', '');
+                    // Despejar Guión
+                    valor = valor.replace('-', '');
+
+                    // Aislar Cuerpo y Dígito Verificador
+                    cuerpo = valor.slice(0, -1);
+                    dv = valor.slice(-1).toUpperCase();
+
+                    // Formatear RUN
+                    rut.value = cuerpo + '-' + dv
+
+                    // Si no cumple con el mínimo ej. (n.nnn.nnn)
+                    if (cuerpo.length < 7) {
+                        rut.setCustomValidity("RUT Incompleto");
+                        return false;
+                    }
+
+                    // Calcular Dígito Verificador
+                    suma = 0;
+                    multiplo = 2;
+
+                    // Para cada dígito del Cuerpo
+                    for (i = 1; i <= cuerpo.length; i++) {
+
+                        // Obtener su Producto con el Múltiplo Correspondiente
+                        index = multiplo * valor.charAt(cuerpo.length - i);
+
+                        // Sumar al Contador General
+                        suma = suma + index;
+
+                        // Consolidar Múltiplo dentro del rango [2,7]
+                        if (multiplo < 7) {
+                            multiplo = multiplo + 1;
+                        } else {
+                            multiplo = 2;
+                        }
+
+                    }
+
+                    // Calcular Dígito Verificador en base al Módulo 11
+                    dvEsperado = 11 - (suma % 11);
+
+                    // Casos Especiales (0 y K)
+                    dv = (dv == 'K') ? 10 : dv;
+                    dv = (dv == 0) ? 11 : dv;
+                    
+                    // Validar que el Cuerpo coincide con su Dígito Verificador
+                    if (dvEsperado != dv) {
+                        I = i.getAttribute("data-sap-cp-validationMessage");
+                    }
                 }
                 if (i.setCustomValidity) {
                     i.setCustomValidity(I);
@@ -998,6 +1047,7 @@
                     if (v && s) {
                         R.ContentPage.toggleMissingMandatoryField(o, false);
                         R.ButtonWidget.toggleLoading(c, true);
+                        R.Result.sendRequestC4();
                         R.Request.postResult(o, s, function(r) {
                             R.Result.handleSubmitResponse(r, o, c);
                             R.ButtonWidget.toggleLoading(c, false);
@@ -1109,6 +1159,40 @@
                         break;
                     }
                 }
+            },
+            sendRequestC4:function(){
+                var Nombre = $("#__input52").val();
+                var Apellido = $("#__input53").val();
+                var NombreEmpresa = $("#__input54").val();
+                var Rut = $("#__input55").val();
+                var Email = $("#__input57").val();
+                var Telefono = $("#__input56").val();
+                var Comuna = $("#__down10").val();
+                var dataString = 
+                {
+                    "Nombre":Nombre,
+                    "Apellido":Apellido,
+                    "NombreEmpresa":NombreEmpresa,
+                    "Rut":Rut,
+                    "Email":Email,
+                    "Telefono":Telefono,
+                    "Comuna":Comuna,
+                };
+                $.ajax({
+                    url: 'integracionC4C.php',
+                    type: "POST",
+                    data: dataString,
+                    asycn:false,
+
+                    success: function(data) {
+                        //document.getElementById('respuesta').innerHTML = data;
+
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        console.log(xhr.status);
+                        console.log(thrownError);
+                    }
+                });
             }
         },
         Request: {
