@@ -529,13 +529,13 @@
 
 	        // Validar que el Cuerpo coincide con su Dígito Verificador
 	        if (dvEsperado != dv) {
-	        	$("application-MarketingContent-manage-component---ObjectView--DesignView--ContentPage-0L-3W").classList.add("sapCpWidgetInvalid");
-	        	$("divRutMessage").append('<span style="color:red;font-weight:bold">RUT Inválido</span>');
+	        	$("#application-MarketingContent-manage-component---ObjectView--DesignView--ContentPage-0L-3W").classList.add("sapCpWidgetInvalid");
+	        	$("#divRutMessage").append('<span style="color:red;font-weight:bold">RUT Inválido</span>');
 	            rut.setCustomValidity("RUT Inválido");
 	            return false;
 	        }else{
-	        	$("application-MarketingContent-manage-component---ObjectView--DesignView--ContentPage-0L-3W").classList.remove("sapCpWidgetInvalid");
-	        	$("divRutMessage").innerHTML = "Hola";
+	        	$("#application-MarketingContent-manage-component---ObjectView--DesignView--ContentPage-0L-3W").classList.remove("sapCpWidgetInvalid");
+	        	$("#divRutMessage").innerHTML = "Hola";
 	        }
 
 	        // Si todo sale bien, eliminar errores (decretar que es válido)
