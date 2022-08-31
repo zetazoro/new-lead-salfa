@@ -531,11 +531,13 @@
 	        if (dvEsperado != dv) {
 	        	$("#application-MarketingContent-manage-component---ObjectView--DesignView--ContentPage-0L-3W").classList.add("sapCpWidgetInvalid");
 	        	$("#divRutMessage").append('<span style="color:red;font-weight:bold">RUT Inválido</span>');
+	        	alert("RUT MALO");
 	            rut.setCustomValidity("RUT Inválido");
 	            return false;
 	        }else{
 	        	$("#application-MarketingContent-manage-component---ObjectView--DesignView--ContentPage-0L-3W").classList.remove("sapCpWidgetInvalid");
 	        	$("#divRutMessage").innerHTML = "Hola";
+	        	alert("RUT BUENO");
 	        }
 
 	        // Si todo sale bien, eliminar errores (decretar que es válido)
@@ -545,7 +547,7 @@
 	    	
 	    	var valor = this.value.replace('.', '');
 	        valor = valor.replace('-', '');
-	    	if(valor.length < 7){
+	    	if(valor.length > 7){
 				checkRut(this);
 	    	}	
 	    });
