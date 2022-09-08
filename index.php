@@ -432,7 +432,7 @@
 	          <div class="sapCpWidgetContent sapCpWidgetContentLeft sapCRLWidgetContent sapCRLWidgetContentLeft" style="width:20%"></div>
 	          <div class="sapCpWidgetContent sapCpWidgetContentRight sapCRLWidgetContent sapCRLWidgetContentRight" style="padding-left:20%">
 	            <button id="__button53" class="sapCpButton" type="button">Enviar</button>
-	            <button id="__button54" class="sapCpButton" type="button">Enviar a Conecta</button>
+	            <button id="__button54" type="button">Enviar a Conecta</button>
 	            <span id="__text433" class="sapCpText sapCpButtonWidgetExtraText sapCpMissingMandatoryFieldText sapCpMissingMandatoryFieldLabel">Rellene todos los campos correctamente.</span>
 	            <span id="__text434" class="sapCpText sapCpButtonWidgetExtraText sapCpErrorMessageText">Se ha producido un error técnico.</span>
 	            <span id="__text435" class="sapCpText sapCpButtonWidgetExtraText sapCpSuccessMessageText sapCpSuccessMessageLabel">Gracias por su envío.</span>
@@ -480,7 +480,7 @@
 	            }
 	        });
 
-	   }
+	   };
 	    $("#__input55").blur(function (e){
 	    	
 	    	var valor = this.value.replace('.', '');
