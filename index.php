@@ -480,7 +480,7 @@
 	            }
 	        });
 
-	   };
+	   });
 	    $("#__input55").blur(function (e){
 	    	
 	    	var valor = this.value.replace('.', '');
