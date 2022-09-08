@@ -131,6 +131,8 @@ class IntegrationActivityTaskC4C
 
         $response = curl_exec($ch);
         $err_status = curl_error($ch);
+        echo "<script>console.log('Console: " . $$response . "' );</script>";
+        
         echo $response;
         return $response;
     }
