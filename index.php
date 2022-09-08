@@ -432,6 +432,7 @@
 	          <div class="sapCpWidgetContent sapCpWidgetContentLeft sapCRLWidgetContent sapCRLWidgetContentLeft" style="width:20%"></div>
 	          <div class="sapCpWidgetContent sapCpWidgetContentRight sapCRLWidgetContent sapCRLWidgetContentRight" style="padding-left:20%">
 	            <button id="__button53" class="sapCpButton" type="button">Enviar</button>
+	            <button id="__button54" class="sapCpButton" type="button">Enviar a Conecta</button>
 	            <span id="__text433" class="sapCpText sapCpButtonWidgetExtraText sapCpMissingMandatoryFieldText sapCpMissingMandatoryFieldLabel">Rellene todos los campos correctamente.</span>
 	            <span id="__text434" class="sapCpText sapCpButtonWidgetExtraText sapCpErrorMessageText">Se ha producido un error técnico.</span>
 	            <span id="__text435" class="sapCpText sapCpButtonWidgetExtraText sapCpSuccessMessageText sapCpSuccessMessageLabel">Gracias por su envío.</span>
@@ -443,7 +444,43 @@
 	    </form>
 	  </body>
 	  <script>
-	   
+	   $("#__button54").click(function (e){
+		   	var Url = window.location.href;;
+	        var Nombre = $("#__input52").val();
+	        var Apellido = $("#__input53").val();
+	        var NombreEmpresa = $("#__input54").val();
+	        var Rut = $("#__input55").val();
+	        var Email = $("#__input57").val();
+	        var Telefono = $("#__input56").val();
+	        var Comuna = $("#__down10").val();
+	        var dataString = 
+	        {
+	            "Nombre":Nombre,
+	            "Apellido":Apellido,
+	            "NombreEmpresa":NombreEmpresa,
+	            "Rut":Rut,
+	            "Email":Email,
+	            "Telefono":Telefono,
+	            "Comuna":Comuna,
+	            "Url":Url
+	        };
+	        $.ajax({
+	            url: 'integracionC4C.php',
+	            type: "POST",
+	            data: dataString,
+	            asycn:false,
+
+	            success: function(data) {
+	                //document.getElementById('respuesta').innerHTML = data;
+
+	            },
+	            error: function(xhr, ajaxOptions, thrownError) {
+	                console.log(xhr.status);
+	                console.log(thrownError);
+	            }
+	        });
+
+	   }
 	    $("#__input55").blur(function (e){
 	    	
 	    	var valor = this.value.replace('.', '');
