@@ -131,13 +131,14 @@ class IntegrationActivityTaskC4C
 
         $response = curl_exec($ch);
         $err_status = curl_error($ch);
-
+        echo $response;
         return $response;
     }
 }
 
 try {
     $integrcionC4C = new IntegrationActivityTaskC4C();
+
     return $integrcionC4C->execServices();
 } catch (Exception $th) {
     echo $th->getMessage();
