@@ -62,22 +62,22 @@ class IntegrationActivityTaskC4C
                     },
                     {
                         "Campo": "Consentimiento",
-                        "Valor": "true"
+                        "Valor": true
                     },
                     {
                         "Campo": "ProcesadorMotor",
-                        "Valor": "false"
+                        "Valor": false
                     },
                     {
                         "Campo": "Conversica",
-                        "Valor": "true"
+                        "Valor": true
                     },
                     {
                         "Campo": "CiudadComuna",
                         "Valor": "'.$_POST['Comuna'].'"
                     },
                     {
-                        "Campo": "UtmCampaign",
+                        "Campo": "Utm_Idcampana",
                         "Valor": "'.$this->getParam('utm_campaign').'"
                     },
                     {
@@ -91,6 +91,14 @@ class IntegrationActivityTaskC4C
                     {
                         "Campo": "UtmSource",
                         "Valor": "'.$this->getParam('utm_source').'"
+                    },
+                    {
+                        "Campo": "UtmContent",
+                        "Valor": "ES"
+                    },
+                    {
+                        "Campo": "UtmTerm",
+                        "Valor": "'.urlencode(.$this->getParam('utm_term')).'"
                     }
                 ]
             }';
