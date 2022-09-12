@@ -54,7 +54,7 @@ class IntegrationActivityTaskC4C
                 "Posiciones": [
                     {
                         "Campo": "WebSite",
-                        "Valor": "Z44"
+                        "Valor": "003"
                     },
                     {
                         "Campo": "RUT",
@@ -81,7 +81,7 @@ class IntegrationActivityTaskC4C
                         "Valor": "'.$this->getParam('utm_campaign').'"
                     },
                     {
-                        "Campo": "Utm_Idcampan",
+                        "Campo": "Utm_Idcampaign",
                         "Valor": "'.$this->getParam('utm_campaign').'"
                     },
                     {
