@@ -39,8 +39,8 @@ class IntegrationActivityTaskC4C
 
     function getBody()
     {
-
-
+        $utm_term = "";
+        $utm_term = urldecode($this->getParam('utm_term'));
         $body = ''.
             '{
                 "Cabecera": {
@@ -74,7 +74,7 @@ class IntegrationActivityTaskC4C
                     },
                     {
                         "Campo": "CiudadComuna",
-                        "Valor": '.$_POST['Comuna'].'
+                        "Valor": "'.$_POST['Comuna'].'"
                     },
                     {
                         "Campo": "Utm_Idcampana",
@@ -98,7 +98,7 @@ class IntegrationActivityTaskC4C
                     },
                     {
                         "Campo": "UtmTerm",
-                        "Valor": "PRUEBA LEAD"
+                        "Valor": "'.$utm_term.'"
                     }
                 ]
             }';
