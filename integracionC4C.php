@@ -74,7 +74,7 @@ class IntegrationActivityTaskC4C
                     },
                     {
                         "Campo": "CiudadComuna",
-                        "Valor": "'.$_POST['Comuna'].'"
+                        "Valor": '.$_POST['Comuna'].'
                     },
                     {
                         "Campo": "Utm_Idcampana",
@@ -139,7 +139,7 @@ class IntegrationActivityTaskC4C
 
         $response = curl_exec($ch);
         $err_status = curl_error($ch);
-        echo "<script>console.log('Console: " . $$response . "' );</script>";
+        
         
         echo $response;
         return $response;
