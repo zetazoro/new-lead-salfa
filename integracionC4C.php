@@ -9,11 +9,11 @@ class IntegrationActivityTaskC4C
      *
      * @var string
      */
-    //const BASE_PATH = "https://l5603-iflmap.hcisbp.us2.hana.ondemand.com/http/registraLeads";
+    const BASE_PATH = "https://l5603-iflmap.hcisbp.us2.hana.ondemand.com/http/registraLeads";
     //const RESULT_HEADERS_PATH = "ResultHeaders";
     //const CREDENTIALS = 'S0024632841:Salinas.2130';
 
-    const BASE_PATH = "https://e400060-iflmap.hcisbt.br1.hana.ondemand.com/http/crearactividadc4c";
+    //const BASE_PATH = "https://e400060-iflmap.hcisbt.br1.hana.ondemand.com/http/crearactividadc4c";
     const RESULT_HEADERS_PATH = "ResultHeaders";
     const CREDENTIALS = 'S0022888059:$alfA.2020';
 
@@ -98,7 +98,7 @@ class IntegrationActivityTaskC4C
                     },
                     {
                         "Campo": "UtmTerm",
-                        "Valor": "'.urlencode(.$this->getParam('utm_term')).'"
+                        "Valor": "PRUEBA LEAD"
                     }
                 ]
             }';
